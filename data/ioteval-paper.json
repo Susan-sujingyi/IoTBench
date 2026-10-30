@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "title": "IoTEval · Paper-reported",
+  "evidence_type": "paper_reported",
+  "citation": {
+    "title": "Programming Embedded IoT Applications in Natural Language with IoTPilot",
+    "authors": "Gong et al.",
+    "venue": "ACM MobiSys 2025",
+    "doi": "10.1145/3711875.3729136",
+    "repository": "https://github.com/CarrollAdmin/IoTPilot",
+    "repository_commit": "614e4e5e17039e38167d602d9534ec71ebb04821"
+  },
+  "protocol": {
+    "trials_per_task": 15,
+    "max_self_debug_iterations": 10,
+    "success_criterion": "Compilation success of the final generated program",
+    "iotbench_case_mapping": "unverified"
+  },
+  "benchmarks": [
+    {
+      "key": "riot",
+      "label": "RIOT",
+      "case_count": 15,
+      "source_table": 2,
+      "source_pdf_page": 8
+    },
+    {
+      "key": "zephyr",
+      "label": "Zephyr",
+      "case_count": null,
+      "source_table": 4,
+      "source_pdf_page": 9
+    },
+    {
+      "key": "contiki",
+      "label": "Contiki",
+      "case_count": null,
+      "source_table": 4,
+      "source_pdf_page": 9
+    },
+    {
+      "key": "freertos",
+      "label": "FreeRTOS",
+      "case_count": null,
+      "source_table": 4,
+      "source_pdf_page": 9
+    }
+  ],
+  "models": [
+    "GPT-4o",
+    "DeepSeek-coder"
+  ],
+  "methods": [
+    "Direct",
+    "Auto-CoT",
+    "MapCoder",
+    "IoTPilot"
+  ],
+  "metrics": [
+    {
+      "key": "rate_at_pass",
+      "label": "Rate@Pass",
+      "description": "Compilation success across repeated generations, with up to 10 self-debug iterations per run."
+    },
+    {
+      "key": "acc_api",
+      "label": "Acc@API",
+      "description": "Accuracy of API use against the benchmark reference, as reported in the paper."
+    },
+    {
+      "key": "acc_header",
+      "label": "Acc@Header",
+      "description": "Accuracy of header use against the benchmark reference, as reported in the paper."
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "riot",
+      "method": "Direct",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 12.4,
+        "acc_api": 47.6,
+        "acc_header": 48.5
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "Auto-CoT",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 3.6,
+        "acc_api": 60.2,
+        "acc_header": 46.9
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "MapCoder",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 62.2,
+        "acc_api": 69.2,
+        "acc_header": 53.8
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "IoTPilot",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 77.8,
+        "acc_api": 80.6,
+        "acc_header": 85.6
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "Direct",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 8.9,
+        "acc_api": 41.7,
+        "acc_header": 43.5
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "Auto-CoT",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 17.3,
+        "acc_api": 60.5,
+        "acc_header": 51.7
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "MapCoder",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 62.7,
+        "acc_api": 69.2,
+        "acc_header": 56.3
+      }
+    },
+    {
+      "benchmark": "riot",
+      "method": "IoTPilot",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 80,
+        "acc_api": 82,
+        "acc_header": 81.9
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "Direct",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 31,
+        "acc_api": 57.1,
+        "acc_header": 53.3
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "Auto-CoT",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 25,
+        "acc_api": 58.4,
+        "acc_header": 56.7
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "MapCoder",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 65,
+        "acc_api": 57.9,
+        "acc_header": 82.7
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "IoTPilot",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 75,
+        "acc_api": 58.6,
+        "acc_header": 87.2
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "Direct",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 33,
+        "acc_api": 55.5,
+        "acc_header": 57.4
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "Auto-CoT",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 33,
+        "acc_api": 47.2,
+        "acc_header": 51.3
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "MapCoder",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 53,
+        "acc_api": 75.6,
+        "acc_header": 56.2
+      }
+    },
+    {
+      "benchmark": "zephyr",
+      "method": "IoTPilot",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 80,
+        "acc_api": 76.6,
+        "acc_header": 67.2
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "Direct",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 0,
+        "acc_api": 66.2,
+        "acc_header": 42.2
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "Auto-CoT",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 4,
+        "acc_api": 80,
+        "acc_header": 31.1
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "MapCoder",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 52,
+        "acc_api": 72.3,
+        "acc_header": 48.9
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "IoTPilot",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 72,
+        "acc_api": 90.8,
+        "acc_header": 66.2
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "Direct",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 0,
+        "acc_api": 44.6,
+        "acc_header": 33.3
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "Auto-CoT",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 4,
+        "acc_api": 63.1,
+        "acc_header": 37.8
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "MapCoder",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 20,
+        "acc_api": 50.6,
+        "acc_header": 31.1
+      }
+    },
+    {
+      "benchmark": "contiki",
+      "method": "IoTPilot",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 52,
+        "acc_api": 84.6,
+        "acc_header": 71.1
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "Direct",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 12,
+        "acc_api": 74.2,
+        "acc_header": 78.8
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "Auto-CoT",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 0,
+        "acc_api": 70.8,
+        "acc_header": 69.4
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "MapCoder",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 28,
+        "acc_api": 69.1,
+        "acc_header": 72.9
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "IoTPilot",
+      "model": "GPT-4o",
+      "metrics": {
+        "rate_at_pass": 68,
+        "acc_api": 84.1,
+        "acc_header": 91.8
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "Direct",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 36,
+        "acc_api": 74.6,
+        "acc_header": 83.5
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "Auto-CoT",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 20,
+        "acc_api": 76.7,
+        "acc_header": 76.5
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "MapCoder",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 40,
+        "acc_api": 65,
+        "acc_header": 70.6
+      }
+    },
+    {
+      "benchmark": "freertos",
+      "method": "IoTPilot",
+      "model": "DeepSeek-coder",
+      "metrics": {
+        "rate_at_pass": 76,
+        "acc_api": 84.2,
+        "acc_header": 92.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IoTBench leaderboards for application code generation and driver migration, with published metrics and traceable experiment results.">
+  <title>IoTBench · Leaderboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#leaderboard">Skip to results</a>
+  <header class="site-header">
+    <h1 class="site-title"><a class="brand" href="?scene=applications" aria-label="IoTBench home"><span class="brand-mark" aria-hidden="true">iB</span>IoTBench</a></h1>
+    <span class="header-label">LEADERBOARD</span>
+  </header>
+  <main id="leaderboard">
+    <nav class="scene-nav" aria-label="Benchmark scenarios">
+      <a href="?scene=applications" data-scene="applications" aria-current="page"><span class="nav-number">01</span>Application Code Generation</a>
+      <a href="?scene=drivers" data-scene="drivers"><span class="nav-number">02</span>Driver Migration</a>
+    </nav>
+
+    <section id="applications" class="scene" aria-labelledby="application-title" hidden>
+      <div class="section-heading">
+        <div><div class="title-line"><h2 id="application-title">IoTEval</h2><span class="badge">Paper-reported</span></div><p class="section-subtitle">4 operating systems · 2 backend models · 4 methods</p></div>
+        <a class="button" href="data/ioteval-app.csv" download>Download task dataset <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="dataset-note" lang="zh-CN">来自 IoTPilot 官方仓库的应用任务集</p>
+      <div class="table-toolbar"><span>All metrics in %. Higher is better.</span><span>Click a metric to sort within each model.</span></div>
+      <div id="application-status" class="load-status" role="status">Loading published results…</div>
+      <div id="application-table-wrap" class="table-wrap" role="region" aria-label="IoTEval results; scroll horizontally to view all operating systems" tabindex="0" hidden>
+        <table id="application-table" class="application-table"><caption class="sr-only">IoTEval results grouped by backend model and method. Each operating system reports compilation success, API accuracy, and header accuracy.</caption></table>
+      </div>
+      <div class="table-legend"><span><i class="best-key" aria-hidden="true"></i>Best within the same model, OS and metric</span><span>— Not reported</span></div>
+      <details class="source-details">
+        <summary>Source &amp; evaluation protocol</summary>
+        <div class="details-content">
+          <p>Gong et al., <a href="https://doi.org/10.1145/3711875.3729136" target="_blank" rel="noopener noreferrer">Programming Embedded IoT Applications in Natural Language with IoTPilot</a>, ACM MobiSys 2025. RIOT: Table 2; Zephyr, Contiki and FreeRTOS: Table 4.</p>
+          <p>Compilation success is the paper’s Rate@Pass: 15 generations per task, with up to 10 self-debug iterations per run. These are published results, not independently reproduced hardware-functionality measurements.</p>
+          <div class="source-links"><a href="https://github.com/CarrollAdmin/IoTPilot/tree/614e4e5e17039e38167d602d9534ec71ebb04821" target="_blank" rel="noopener noreferrer">Official repository ↗</a><a href="data/ioteval-paper.json" download>Results JSON ↓</a></div>
+        </div>
+      </details>
+    </section>
+
+    <section id="drivers" class="scene" aria-labelledby="driver-title" hidden>
+      <div class="section-heading">
+        <div><div class="title-line"><h2 id="driver-title">Driver Migration</h2><span class="badge badge-experiment">Experimental</span></div><p id="driver-subtitle" class="section-subtitle">Four configurations · one common task subset</p></div>
+        <div class="heading-actions"><a class="button" href="data/driver-benchmark.zip" download>Download benchmark <span aria-hidden="true">↗</span></a><a class="button" href="data/driver-four-arms-strict.csv" download>Download results <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div id="driver-context" class="experiment-context" hidden></div>
+      <div id="driver-status" class="load-status" role="status">Loading experiment results…</div>
+      <div id="driver-table-wrap" class="table-wrap" role="region" aria-label="Driver migration results; scroll horizontally if needed" tabindex="0" hidden>
+        <table id="driver-table" class="driver-table"><caption class="sr-only">Compilation and software end-to-end pass rates on the same strict task subset.</caption></table>
+      </div>
+      <div class="driver-notes"><p>Software test pass requires both native compilation and software behavior tests to pass. Hardware testing: not run.</p><p>S, D and SD are different input conditions. Only Codex CLI / S and AutoEmbed / S share the same input condition. Select a method to inspect its task results.</p></div>
+      <details class="source-details">
+        <summary>Task subset &amp; experiment protocol</summary>
+        <div id="driver-protocol" class="details-content"></div>
+      </details>
+    </section>
+    <noscript><p class="load-status">JavaScript is required to view the tables. Download the <a href="data/ioteval-paper.json">IoTEval results</a>, <a href="data/ioteval-app.csv">official application tasks</a>, <a href="data/driver-benchmark.zip">driver benchmark</a>, or <a href="data/driver-four-arms-strict.csv">driver results</a> directly.</p></noscript>
+  </main>
+  <footer class="site-footer"><span>IoTBench</span></footer>
+  <dialog id="task-dialog" aria-labelledby="task-dialog-title">
+    <div class="dialog-heading"><div><p class="eyebrow">TASK RESULTS</p><h2 id="task-dialog-title"></h2></div><button class="close-button" type="button" aria-label="Close task results">×</button></div>
+    <p id="task-dialog-summary" class="section-subtitle"></p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Individual driver task results"><table id="task-table" class="task-table"></table></div>
+    <p class="dialog-note">“Not run” is distinct from a failed behavior test. Compilation failures and rejected submissions still count as unsuccessful in the software end-to-end rate.</p>
+  </dialog>
+</body>
+</html>
