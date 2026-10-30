@@ -1,0 +1,3077 @@
+{
+  "schema_version": 2,
+  "subset": "four_arms_strict",
+  "score_format": "strict_software",
+  "total_cases": 44,
+  "subset_cases": 34,
+  "excluded_cases": 10,
+  "subset_sensors": 16,
+  "samples_per_task": 1,
+  "snapshot_window": {
+    "start": "2026-10-29T21:00:29+08:00",
+    "end": "2026-10-29T21:00:51+08:00"
+  },
+  "snapshot_window_display": "2026-10-29T21:00:29+08:00 – 2026-10-29T21:00:51+08:00",
+  "benchmark_revision": "r8",
+  "benchmark_release_identity": "059f2d8a535858015476ec6db1bde4cdf35b2144d1f24641121cb88f49a62c7b",
+  "report_execution_range": "r8–r12",
+  "budget": {
+    "seconds_per_task": 1800,
+    "request_limit": 64,
+    "cost_limit_cny": 20
+  },
+  "source": {
+    "archive": "leaderboard-20261029-complete.zip",
+    "sha256": "112eec86c99b304a2ce94054a67a4c226458b4e9fb378dbca1935f701e2ae364",
+    "member_sha256": {
+      "snapshot.json": "7f464a7a9e8538f9d5c2c847c4949b6649f0bfec89ce69f6e4cc6514f3e694a3",
+      "four_arms_strict.csv": "4f08fe3c1aec2c36be9123b8b7925b21f5e444f933acf25b4e627aaeb0c0be72",
+      "leaderboard_summary.csv": "dd0d47cdc39c48b1a966e8cda452b0b523aacbd99a5afaf3ea09491cbbd92e22",
+      "validation.json": "edc61b727aa112c0d6a23ea22be0e6410c407b17bd3a33b049b5a2500840dd6e"
+    },
+    "summary": [
+      {
+        "subset": "four_arms_strict",
+        "label": "Codex CLI / S",
+        "method": "codex_cli",
+        "condition": "S",
+        "task_count": 34,
+        "sensor_count": 16,
+        "native_compile_pass_count": 30,
+        "native_compile_pass_rate_pct": 88.24,
+        "behavior_test_executed_count": 30,
+        "end_to_end_pass_count": 2,
+        "end_to_end_pass_rate_pct": 5.88,
+        "compile_failed_count": 4,
+        "behavior_failed_count": 28,
+        "submission_rejected_count": 0
+      },
+      {
+        "subset": "four_arms_strict",
+        "label": "Codex CLI / D",
+        "method": "codex_cli",
+        "condition": "D",
+        "task_count": 34,
+        "sensor_count": 16,
+        "native_compile_pass_count": 30,
+        "native_compile_pass_rate_pct": 88.24,
+        "behavior_test_executed_count": 30,
+        "end_to_end_pass_count": 3,
+        "end_to_end_pass_rate_pct": 8.82,
+        "compile_failed_count": 4,
+        "behavior_failed_count": 27,
+        "submission_rejected_count": 0
+      },
+      {
+        "subset": "four_arms_strict",
+        "label": "Codex CLI / SD",
+        "method": "codex_cli",
+        "condition": "SD",
+        "task_count": 34,
+        "sensor_count": 16,
+        "native_compile_pass_count": 29,
+        "native_compile_pass_rate_pct": 85.29,
+        "behavior_test_executed_count": 29,
+        "end_to_end_pass_count": 3,
+        "end_to_end_pass_rate_pct": 8.82,
+        "compile_failed_count": 4,
+        "behavior_failed_count": 26,
+        "submission_rejected_count": 1
+      },
+      {
+        "subset": "four_arms_strict",
+        "label": "AutoEmbed / S",
+        "method": "autoembed",
+        "condition": "S",
+        "task_count": 34,
+        "sensor_count": 16,
+        "native_compile_pass_count": 12,
+        "native_compile_pass_rate_pct": 35.29,
+        "behavior_test_executed_count": 12,
+        "end_to_end_pass_count": 1,
+        "end_to_end_pass_rate_pct": 2.94,
+        "compile_failed_count": 22,
+        "behavior_failed_count": 11,
+        "submission_rejected_count": 0
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "sensor": "apds9960",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-apds9960-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "spi",
+      "spi_mode": 0,
+      "id": "riot-tock-bme280-spi-mode0",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "submission_rejected",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "ccs811",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-ccs811-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "riot-tock-dht11-gpio",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-lps22hb-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-lsm303dlhc-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-sht3x-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "adt7310",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-nuttx-adt7310-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "apds9960",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-apds9960-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bh1750",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bh1750-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "pass",
+        "codex-d": "pass",
+        "codex-sd": "pass",
+        "autoembed-s": "pass"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bme280-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-nuttx-bme280-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bmm150",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bmm150-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bmp388",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bmp388-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "ccs811",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-ccs811-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dht11-gpio",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht20",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dht20-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dps310",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dps310-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "isl29035",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-isl29035-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-lps22hb-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-lsm303dlhc-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "pass",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "mpu6050",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-mpu6050-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-sht3x-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bh1750",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bh1750-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "pass",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bme280-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bmp388",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bmp388-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "zephyr-tock-dht11-gpio",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht20",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-dht20-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "isl29035",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-isl29035-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "pass",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lps22hb-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lsm303dlhc-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "pass",
+        "codex-d": "behavior_failed",
+        "codex-sd": "pass",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm6dso",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lsm6dso-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "mpu6050",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-mpu6050-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-sht3x-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    }
+  ],
+  "task_universe": [
+    {
+      "sensor": "adt7310",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "spi",
+      "spi_mode": 0,
+      "id": "riot-tock-adt7310-spi-mode0",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "model_unsupported",
+        "codex-sd": "pass",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / D: model_unsupported"
+    },
+    {
+      "sensor": "apds9960",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-apds9960-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bh1750",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-bh1750-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "not_completed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / D: not_completed"
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-bme280-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "not_completed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "not_completed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / S: not_completed; Codex CLI / SD: not_completed"
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "spi",
+      "spi_mode": 0,
+      "id": "riot-tock-bme280-spi-mode0",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "submission_rejected",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "ccs811",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-ccs811-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "riot-tock-dht11-gpio",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-lps22hb-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-lsm303dlhc-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "riot",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "riot-tock-sht3x-i2c",
+      "source_stack": "RIOT",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "adt7310",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-nuttx-adt7310-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "apds9960",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-apds9960-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bh1750",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bh1750-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "pass",
+        "codex-d": "pass",
+        "codex-sd": "pass",
+        "autoembed-s": "pass"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bme280-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-nuttx-bme280-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bmm150",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bmm150-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bmp388",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-bmp388-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "ccs811",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-ccs811-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dht11-gpio",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht20",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dht20-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dps310",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-dps310-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "isl29035",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-isl29035-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-lps22hb-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "compile_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-lsm303dlhc-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "pass",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm6dso",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-lsm6dso-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "compile_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "model_unsupported",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / SD: model_unsupported"
+    },
+    {
+      "sensor": "mpu6050",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-mpu6050-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "zephyr",
+      "target_os": "nuttx",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-nuttx-sht3x-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "NuttX",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "adt7310",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-tock-adt7310-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "pass",
+        "codex-d": "model_unsupported",
+        "codex-sd": "pass",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": "Codex CLI / D: model_unsupported"
+    },
+    {
+      "sensor": "apds9960",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-apds9960-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "model_unsupported",
+        "codex-d": "behavior_failed",
+        "codex-sd": "model_unsupported",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / S: model_unsupported; Codex CLI / SD: model_unsupported"
+    },
+    {
+      "sensor": "bh1750",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bh1750-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "pass",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bme280-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "bme280",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "spi",
+      "spi_mode": 3,
+      "id": "zephyr-tock-bme280-spi-mode3",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "not_completed",
+        "codex-sd": "model_unsupported",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / D: not_completed; Codex CLI / SD: model_unsupported"
+    },
+    {
+      "sensor": "bmm150",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bmm150-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "model_unsupported",
+        "codex-d": "model_unsupported",
+        "codex-sd": "model_unsupported",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / S: model_unsupported; Codex CLI / D: model_unsupported; Codex CLI / SD: model_unsupported"
+    },
+    {
+      "sensor": "bmp388",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-bmp388-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "ccs811",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-ccs811-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "not_completed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / SD: not_completed"
+    },
+    {
+      "sensor": "dht11",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "gpio",
+      "spi_mode": "",
+      "id": "zephyr-tock-dht11-gpio",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dht20",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-dht20-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "compile_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "dps310",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-dps310-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": false,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "not_completed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": "Codex CLI / SD: not_completed"
+    },
+    {
+      "sensor": "isl29035",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-isl29035-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "pass",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lps22hb",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lps22hb-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm303dlhc",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lsm303dlhc-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "pass",
+        "codex-d": "behavior_failed",
+        "codex-sd": "pass",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "lsm6dso",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-lsm6dso-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "mpu6050",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-mpu6050-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "behavior_failed"
+      },
+      "exclusion_reason": ""
+    },
+    {
+      "sensor": "sht3x",
+      "source_os": "zephyr",
+      "target_os": "tock",
+      "bus": "i2c",
+      "spi_mode": "",
+      "id": "zephyr-tock-sht3x-i2c",
+      "source_stack": "Zephyr",
+      "target_stack": "Tock",
+      "in_strict_subset": true,
+      "arm_statuses": {
+        "codex-s": "behavior_failed",
+        "codex-d": "behavior_failed",
+        "codex-sd": "behavior_failed",
+        "autoembed-s": "compile_failed"
+      },
+      "exclusion_reason": ""
+    }
+  ],
+  "results": [
+    {
+      "id": "codex-s",
+      "method": "Codex CLI / S",
+      "system": "Codex CLI",
+      "condition": "S",
+      "model": "gpt-5.6-luna",
+      "counts": {
+        "tasks": 34,
+        "compile_pass": 30,
+        "software_e2e_pass": 2
+      },
+      "metrics": {
+        "compile_rate": 88.24,
+        "software_e2e_rate": 5.88
+      },
+      "scores": [
+        {
+          "task_id": "riot-tock-apds9960-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b60d4e6e7585fd282ebe7cafb9d5b6490e40dcb7e358d76aadc9a8d3e8d084d9"
+        },
+        {
+          "task_id": "riot-tock-bme280-spi-mode0",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "71ea19ddc328f9e7f0cfdb114b61a015c09da098b048f73ed9a50278e2ea8420"
+        },
+        {
+          "task_id": "riot-tock-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "575d88289149778b0a89abebdd32d533efe16ec8022945e85ea1db45d3f89994"
+        },
+        {
+          "task_id": "riot-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6b000fc93c883aee2168aa365e90756a062c41a4c0a7fb1d0ceb656450d4dbdd"
+        },
+        {
+          "task_id": "riot-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1396066cbbdb56c54987446f8aaeb1fc07fd923d832b9f14a27ccc0ec1301ae4"
+        },
+        {
+          "task_id": "riot-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9925f1ff2fa69886e693329953e5d6cbb0063b5cb74b7c836803445cd0bb3978"
+        },
+        {
+          "task_id": "riot-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e5319d0b802098e3d564e49d8510ea4984b90783750563e315b379adf4710b01"
+        },
+        {
+          "task_id": "zephyr-nuttx-adt7310-spi-mode3",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "2145da3da440e1675df5db298323f1f8cab0c8519c73fcc4ee452cd47dc6a49f"
+        },
+        {
+          "task_id": "zephyr-nuttx-apds9960-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "048f691d7addf26d321bfef32a0b82c6e805a58ff9d8178430942fc2ed0104c9"
+        },
+        {
+          "task_id": "zephyr-nuttx-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "66726d93b295462e212f607f290dc65e68c06e827c0b31b203dbb8807b3aad1e"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f45a748775f260638822450947c987bee9554592accd8d78f60c8a03d146027d"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e3f2bd2e661d1aeb281c5ae83499ce649b774202b3acf02033df6888b1e8ff36"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmm150-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "90a61cca4f588fe33317d467884db37fc7b89228e0931c74aa10375dcffc1ee2"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "26fa20277ba2e1d521a7fe2d38f8e9a9db0dca9bfaffd7e1bd626490913f05ee"
+        },
+        {
+          "task_id": "zephyr-nuttx-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1c43b45afad2948b48b6cc7ae041a6b15aded2e009f60d2fef3391001b360b18"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "aaec01085899ff64be0a9742dd2f94f795e5d263be77541e7fe3028c2d8cefce"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "ff5634bb05645aa286068a04543cda1a2570838364c006aab1a60bff799ee721"
+        },
+        {
+          "task_id": "zephyr-nuttx-dps310-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "12193f6a6b9a70d00c3467f233f6992005ac19eb30db0e41635038a54d6cff8e"
+        },
+        {
+          "task_id": "zephyr-nuttx-isl29035-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "873fa6eeb71c76242de7974aabb55557e7833f0a8e45f18db6b4a49a7d09e68f"
+        },
+        {
+          "task_id": "zephyr-nuttx-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "caf4e7d1c8b18680ba57157fea767a33033e6afd2feadcb66e9dea568e372258"
+        },
+        {
+          "task_id": "zephyr-nuttx-lsm303dlhc-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e2eeaad0af0c3a3b2a855801d4a39dfcc2e57ff4a00c14e22c092cc196e3040a"
+        },
+        {
+          "task_id": "zephyr-nuttx-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "c75e9503e369e5021d9ccb555399bf71773dffafa50c50aa8420097e7ff0df49"
+        },
+        {
+          "task_id": "zephyr-nuttx-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "a8e3e9378e7d913b8a8afa2133a39e017539e9a5afacd2c79931044607dc5d55"
+        },
+        {
+          "task_id": "zephyr-tock-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f9f8b574da432a56ad60f6bb258ce0130958a1bc9f46531f33be9e3d61d4d4eb"
+        },
+        {
+          "task_id": "zephyr-tock-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "7afae11691b11366791d7059e6ebbe6c931fe1a14576f210994799eb6824f512"
+        },
+        {
+          "task_id": "zephyr-tock-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "abcc967cc944b7d73f42c435127432d469d7f315cfe3c3823449ef279c64f37c"
+        },
+        {
+          "task_id": "zephyr-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "691d28a4d4a7ba23347175015460e9e78a9385bbd4f0d09216986f72180de61c"
+        },
+        {
+          "task_id": "zephyr-tock-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "c93d56c06f8907040633a349a670fc4138b407f9febcb1acc45363b61c359f51"
+        },
+        {
+          "task_id": "zephyr-tock-isl29035-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b2e26723df12475e881b42c69f268bef97e9c0c743617ed123292667e317aef2"
+        },
+        {
+          "task_id": "zephyr-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f4cc75e8391756f531093757d31db3a0861de5deb5a14e822cca05776b96ee0d"
+        },
+        {
+          "task_id": "zephyr-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "bdb8a49eaa3795328c093e410580e6a905893a4eced94131e7ec83c2c4b35a0a"
+        },
+        {
+          "task_id": "zephyr-tock-lsm6dso-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0e2b5342f85a56c3eea12899bd6a017d8ced405de1c0c7baa016634214b06bae"
+        },
+        {
+          "task_id": "zephyr-tock-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3d0a11d69ad5b5e078b51d72ba282e9f8f77eb69317bbd4714b6fe229d00f510"
+        },
+        {
+          "task_id": "zephyr-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "30ab6fe6f56f0441e22ba6ad7466abd66c7f9abc8b224224f5d84ed23b494556"
+        }
+      ]
+    },
+    {
+      "id": "codex-d",
+      "method": "Codex CLI / D",
+      "system": "Codex CLI",
+      "condition": "D",
+      "model": "gpt-5.6-luna",
+      "counts": {
+        "tasks": 34,
+        "compile_pass": 30,
+        "software_e2e_pass": 3
+      },
+      "metrics": {
+        "compile_rate": 88.24,
+        "software_e2e_rate": 8.82
+      },
+      "scores": [
+        {
+          "task_id": "riot-tock-apds9960-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "dfc3ee4ac2f351cd1d532b997490bb774efa0c0d62425ec399a10e6e57f691f0"
+        },
+        {
+          "task_id": "riot-tock-bme280-spi-mode0",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "41f556a94bd9b0fc4a797cef2f93390e66f3056817d2e9a257208becbc7e837f"
+        },
+        {
+          "task_id": "riot-tock-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f279ea06c02686f064599b1c6b1432d03039310b3a8432fbbfa5ae380d452bf1"
+        },
+        {
+          "task_id": "riot-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "66b18ade7c555b3b000111e6e02732deb1b4decbb6bc17b207c1448c194558db"
+        },
+        {
+          "task_id": "riot-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "dfe905978a8dc1c6d978017bc0ff89815cf0bb82d8804011e100f9b9b4ca6d80"
+        },
+        {
+          "task_id": "riot-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6fb5587f12118dd38363b2ccfc06533c72ddbc2e52748904e59312171732ebbb"
+        },
+        {
+          "task_id": "riot-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f34d0064fb89df69419165f4f97f9ea7c02d89d69d1c8b07a7aebf597c3ee709"
+        },
+        {
+          "task_id": "zephyr-nuttx-adt7310-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f5caf38e5e81f08511ec22c9b5b4d16dc196ed6393783bb17dbca8f80eb6a381"
+        },
+        {
+          "task_id": "zephyr-nuttx-apds9960-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "8adba702c3699f1e524d9a0cf6455230b57093d29ee9a1033667340f754ecbac"
+        },
+        {
+          "task_id": "zephyr-nuttx-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3fa47a44e6ebdc9c2651bbb9374a7ae1465315866a03b65775f850950958a711"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "735c61d04806d8458743c53a0c6eb66d0f7927db4737a0e3f3589006389b96c4"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1cf5c3de552e95a0b594643ef21ef334697f0733385cbccb3a0f43743baf44ff"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmm150-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9e3e0fe443f0145397c309b403f8cd6a4351edf9451586ed22a72c01fef6e86f"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "2c4bd7fc660c08a92ae56464c825d856761774ddf83ba7e2c40ce3fc16426294"
+        },
+        {
+          "task_id": "zephyr-nuttx-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "ce56f42ad461d63507b703fb5e6fd7594e2825f360b8ec6235d3cffe45a3586a"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1b5b5432e2036167a11e38fa0b48a74898dd6b58e0e9203f89c070edef4a5856"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3c2b3ba4257cd86ff23ca4e00e81d2015510687be351fb0416a6ba8e871b2c82"
+        },
+        {
+          "task_id": "zephyr-nuttx-dps310-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f0879168a131c63fbdace41ef51236ad7af384c6d0a1eb29271a0e19a05ae9b6"
+        },
+        {
+          "task_id": "zephyr-nuttx-isl29035-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "12907d459c3147e88e844d6e971e6083fd3c9de057e6700defa49b0eb3d4f4e9"
+        },
+        {
+          "task_id": "zephyr-nuttx-lps22hb-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "06c28e2a47a293aa8350ae3cddaa822723bd37ca0d466c66c4258c66389c9a44"
+        },
+        {
+          "task_id": "zephyr-nuttx-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "17483f2f521d928c322a1aa112b7529d08a388fa411f240679cb4033b7e2ba91"
+        },
+        {
+          "task_id": "zephyr-nuttx-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3130f5f52d6faa219e7a1511a55466ffa663c30530db600ae77f0e83f88c312e"
+        },
+        {
+          "task_id": "zephyr-nuttx-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e4306660eb51a8a8e04d838c053df2d5fcd72458b00569c4ce0b8ebdefdd7f1c"
+        },
+        {
+          "task_id": "zephyr-tock-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "590ec378a31568204b9f77c5a615a633868210032ac640c410d4a1012d8bab4c"
+        },
+        {
+          "task_id": "zephyr-tock-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "eba02bd1c4ca7f31f0ee2fcdf6583f923042462df666651c1cce4e6d94b4c9da"
+        },
+        {
+          "task_id": "zephyr-tock-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "40256d11e51bb898acf2cf07b67e4023f6389153ac3f6b7a88162cdb9bb12385"
+        },
+        {
+          "task_id": "zephyr-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "49f46b677ef089e7628c443ff2c57be247f6c2e6819e587f3841d6199db61617"
+        },
+        {
+          "task_id": "zephyr-tock-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9131f9e89c5e9126950dd9d0a91a0a8ed378b7a375f20a827d6089a3bfa43680"
+        },
+        {
+          "task_id": "zephyr-tock-isl29035-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b871de875b111ac8cb774572de4507ec1d190f711f8ead096ed7a961d8ed1618"
+        },
+        {
+          "task_id": "zephyr-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9477e581241fbb625bb9800a648cea9c91dcdd8d9d4374a0c06a088fba35d24e"
+        },
+        {
+          "task_id": "zephyr-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b47e7508d9b99cfb4f410bc86ebbd2a2890fc6522ba2c97b4cc228bcdba8643b"
+        },
+        {
+          "task_id": "zephyr-tock-lsm6dso-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "be35949c42a491bdd934ce8a2650ecc66fb6ea8badf0a27b5fcc576f071531eb"
+        },
+        {
+          "task_id": "zephyr-tock-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "c3d4dbe2314b39d47c949f531c021ad05edbeba3b1ac02825f71fc376d3282d1"
+        },
+        {
+          "task_id": "zephyr-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1ac8d09f651e786858a66b3e722569efd3667587f48e6f7805d5013804f06406"
+        }
+      ]
+    },
+    {
+      "id": "codex-sd",
+      "method": "Codex CLI / SD",
+      "system": "Codex CLI",
+      "condition": "SD",
+      "model": "gpt-5.6-luna",
+      "counts": {
+        "tasks": 34,
+        "compile_pass": 29,
+        "software_e2e_pass": 3
+      },
+      "metrics": {
+        "compile_rate": 85.29,
+        "software_e2e_rate": 8.82
+      },
+      "scores": [
+        {
+          "task_id": "riot-tock-apds9960-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6d0433c401d99563ccb683ae8839ff7df5fd16625e79513c790fbd02b5c56947"
+        },
+        {
+          "task_id": "riot-tock-bme280-spi-mode0",
+          "native_compile_pass": null,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "not_run",
+          "behavior_test_status": "not_run",
+          "status": "submission_rejected",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "2c48c88df9c633e5d13195a8bff676717324d6a412a210afaab02d3a87eddc8b"
+        },
+        {
+          "task_id": "riot-tock-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "dc09cd58a8159c211b59e7583028361ffe431a986d3f009819fc9c0cbeea0ba1"
+        },
+        {
+          "task_id": "riot-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f1126304e38d4f5f21dca1b8b0ee79721786df98f7fc09cc3ca4b4d86ec8c62f"
+        },
+        {
+          "task_id": "riot-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1e91b3e0418a3f13b8223a417041b66dfa5038ae4fef1465fb4be2a16ae61067"
+        },
+        {
+          "task_id": "riot-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "32d3cbe73c6317022551c1fc20d8f15198fa7997a3978feecf3d1c5db0958c2c"
+        },
+        {
+          "task_id": "riot-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "a776ccf1cf54925ec5eac0c62a29a3b68760fae9a6c5c4a90492d92ce3f62e44"
+        },
+        {
+          "task_id": "zephyr-nuttx-adt7310-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "7cfcab27cae586df80fab07461c494f33018ffe42b1b2c32f27a6ef2eceaebe3"
+        },
+        {
+          "task_id": "zephyr-nuttx-apds9960-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "c67f5e37a0e7618b403490a0c488b7a6d18d8a4771856f1316eb4a2420251cea"
+        },
+        {
+          "task_id": "zephyr-nuttx-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0860fa06ae7c100cbf3e3a06ad732e876b69e8f35c126850caa49c7e42984427"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "a84dba4256ea040bd50bae1536b3d1098b9938f0c1f8eedb199e0529ee2ff5e5"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0844372ac272351e917ea39b5982ccce2873b82c365be72d6cc71ac1195d7a9f"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmm150-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "d1ec6d60f76b4417e47e778d58f460f0c46a12e0e28c5d28e2f1f18b415aac63"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6b937132ec947aa1f54367b2f88b431424b09572840dae1541c0f7b077df5e51"
+        },
+        {
+          "task_id": "zephyr-nuttx-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f4f36c6a61dd7d8e4bfccab610f63a65b2b5353faa10dffa18013f031714753f"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1a51976d5e5886c283f74846f08b4a3071ddc4101d471f8bb742dc5a004dfdff"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0e870cf9a85a09f36427dac17d394f41532910ecf2e05f3f159b2d8d6379cf4b"
+        },
+        {
+          "task_id": "zephyr-nuttx-dps310-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "571a662a21ba2175df4b515997051893c2f1b01ce0a886a92b5f64a21fce99fc"
+        },
+        {
+          "task_id": "zephyr-nuttx-isl29035-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1d9869ccc8a492313d928a79d3598269049c8b16ac69139f82299e5c05f15c87"
+        },
+        {
+          "task_id": "zephyr-nuttx-lps22hb-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "011173b5c3243583f708d7d300b37a0693dc997b90bc5d75d28a05ece38a032f"
+        },
+        {
+          "task_id": "zephyr-nuttx-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b74089d3de838735ede89c996f60f8ddae06ce2d5017295e52fc43f00a0aa7ad"
+        },
+        {
+          "task_id": "zephyr-nuttx-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b0342c06cc4e10419910f27b4f1206a038bcffad9599df0d299b778d6a7c80bb"
+        },
+        {
+          "task_id": "zephyr-nuttx-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0d544f95c5babfd98efe59db324d54d35ec30301fcf6fa67bb6cacf233292c0b"
+        },
+        {
+          "task_id": "zephyr-tock-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "745dfaf916b4d8140a452029d331ca0ef0d850e8ddcab0317f182719bbbb5319"
+        },
+        {
+          "task_id": "zephyr-tock-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "a6324ed040488ff76c9eeabec8fb219b1510b20271f0c9779310b386ee45b6bc"
+        },
+        {
+          "task_id": "zephyr-tock-bmp388-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "7cb80351f7229012c53096460f6cf15b49a064a36d1ba47f6194fe08b1aa180a"
+        },
+        {
+          "task_id": "zephyr-tock-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "bbc8ec8ae5dc6813bb2ec63988621397cc22701511f48e4cc96238f80bce96e2"
+        },
+        {
+          "task_id": "zephyr-tock-dht20-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "05db703edc474e562433990f73e011cdab8572ee383f62251649d127c10f01a5"
+        },
+        {
+          "task_id": "zephyr-tock-isl29035-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "15795d2394befb1b8679d109ded34fefb21f579cda9b80a8e8312cb493500aa4"
+        },
+        {
+          "task_id": "zephyr-tock-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "60cf5d64b67ebce85433fc4b31dd84ebdd9ca51fddb0e5ccb0076858c2e0e88c"
+        },
+        {
+          "task_id": "zephyr-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9eaf97091aaffadc24a3c548f657399c281c3c026f266651b7e01db2ad52a949"
+        },
+        {
+          "task_id": "zephyr-tock-lsm6dso-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "5b04b0c05cd678a9b2e05ffe03600c6e0d7d1ccb4398d12a0bbdad4d0f300e27"
+        },
+        {
+          "task_id": "zephyr-tock-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e670f5d4b3410d326ef74ba1cff819f7871f7402ece8f67f1cab0abe5e168761"
+        },
+        {
+          "task_id": "zephyr-tock-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9725bf45ae244eb5183a51c32ff7b08b858e864cb89fd8f12e87a3d2cc19963c"
+        }
+      ]
+    },
+    {
+      "id": "autoembed-s",
+      "method": "AutoEmbed / S",
+      "system": "AutoEmbed",
+      "condition": "S",
+      "model": "gpt-5.6-luna",
+      "counts": {
+        "tasks": 34,
+        "compile_pass": 12,
+        "software_e2e_pass": 1
+      },
+      "metrics": {
+        "compile_rate": 35.29,
+        "software_e2e_rate": 2.94
+      },
+      "scores": [
+        {
+          "task_id": "riot-tock-apds9960-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "5485cf17df39f9dceb3d783765021bee6e6534b24f172d9b8e64cc47bf7a60f2"
+        },
+        {
+          "task_id": "riot-tock-bme280-spi-mode0",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9c098731f707ca6712b7a3e232d59ac129f26a3715c9b3fe89daf4e8b8ffc9d9"
+        },
+        {
+          "task_id": "riot-tock-ccs811-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "1ccf200331520d971d1d576072082b149092f15aead921f5e42bc372356d57a9"
+        },
+        {
+          "task_id": "riot-tock-dht11-gpio",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "2a7e1ec32b5cdc4e2058d19d13e70c45e7677ec198f8d79bb95dda5b8747bf0e"
+        },
+        {
+          "task_id": "riot-tock-lps22hb-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f66d69896832443c4c8f58513e204d4cd7b3125b0997af5f616aa9c3daeb3d2e"
+        },
+        {
+          "task_id": "riot-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "26688cc2ffc52bab9f1cb7d65a5a2d73dcddfdbffa30d90551c1d2c8b1541189"
+        },
+        {
+          "task_id": "riot-tock-sht3x-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "b3501dcee2d67adddf8c00b2697fabac554975c3e4f42ed9a964fc15fa1146b1"
+        },
+        {
+          "task_id": "zephyr-nuttx-adt7310-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3f16f1e45b7106ecb77e7ae3d1cdf4a6655a022b10ab6574791a237a38962b43"
+        },
+        {
+          "task_id": "zephyr-nuttx-apds9960-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "43dcdff3aa8cde233ae58a57bcb3a20fd28bee7a80dc6c51505a7f72e96b91f7"
+        },
+        {
+          "task_id": "zephyr-nuttx-bh1750-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 1,
+          "end_to_end_success": 1,
+          "native_build_status": "pass",
+          "behavior_test_status": "pass",
+          "status": "pass",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "48ccfa66401b7230586a9ba9242004ff4a0955385eb55d53394e2cb5ff6b2574"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "73cee7e9260b40b79d34067b9cf0e5fb1795c0f1ed5cd0388f9c22b0fcefc1c2"
+        },
+        {
+          "task_id": "zephyr-nuttx-bme280-spi-mode3",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "8fed790a530f8dee21bdfe95f3a70e48ee539721b59eefcc34797714d3dcad13"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmm150-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6fcf4b43598426aa8f8b8a3272498c407a4aabadb8252232b5e9472152a528a4"
+        },
+        {
+          "task_id": "zephyr-nuttx-bmp388-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6f39f3eefdee9b1d8d4481e22bd885617999f6b8bd101f51731a26bef7447520"
+        },
+        {
+          "task_id": "zephyr-nuttx-ccs811-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "c993794430b30f3c3e4166cd5143b4f44aad8ca8b5d2fb9ea9c36aff53c463cf"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht11-gpio",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "eedecb3a3bf81867a13964a332e573dcac978aff9a8af8b0d7196725c5c47a62"
+        },
+        {
+          "task_id": "zephyr-nuttx-dht20-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "10b4b03e158f259576fb497c3c3ab54b8223e1f6e88fa707c7704f26289b6cc2"
+        },
+        {
+          "task_id": "zephyr-nuttx-dps310-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "965fddd0145fc37a3ab8642c34c6ecfd554aa1d439c3b99c39f0d5bfbe846dfb"
+        },
+        {
+          "task_id": "zephyr-nuttx-isl29035-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "27f4989eb3aa701af0a4a19794cb24d841debf8ce891d1dd3b5200c62980da6a"
+        },
+        {
+          "task_id": "zephyr-nuttx-lps22hb-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "5f1e966a8095e95811fd18f2ad59ae72e7581adee4820f02592e185bb79acabe"
+        },
+        {
+          "task_id": "zephyr-nuttx-lsm303dlhc-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9e39f6f81454f46c93133a085c2a9b2990f40ee32ae9b2c4e6dee79a4020e85d"
+        },
+        {
+          "task_id": "zephyr-nuttx-mpu6050-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "65b2d291f145e87a4149f426f0ac8d2bbe9f9e7993e334a6dbb6bf6c885b36a8"
+        },
+        {
+          "task_id": "zephyr-nuttx-sht3x-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "95e887d894eb2bbea811bb9159ebc16d6b39b552bab2f24fe1ded660aab17188"
+        },
+        {
+          "task_id": "zephyr-tock-bh1750-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "203b1341ffc8eea137041fd9f137556b9a51428d5803ffc6b1810c5d7b447976"
+        },
+        {
+          "task_id": "zephyr-tock-bme280-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "9533a3b50f55bf23c5d43ae2c8f1d7a91cc15e3a7e1a2018b91e9f087e6a331e"
+        },
+        {
+          "task_id": "zephyr-tock-bmp388-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "12550de80142e2aa06c85f6795be85146e6547701e8131d26662f1b13b947f1e"
+        },
+        {
+          "task_id": "zephyr-tock-dht11-gpio",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "038bbc7e2d07d5b36189be036a178d6881adc14a113dccf20a4b3ce308ee2e62"
+        },
+        {
+          "task_id": "zephyr-tock-dht20-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "e01b8779205f97e606c495176ddaa3ffec5b0aec36fc54ce47bcf1960997a3c4"
+        },
+        {
+          "task_id": "zephyr-tock-isl29035-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "3d40c4223d0ccf28b1b17e019ea69d510d4fa0ef1b71ad8c33f12d7ef1440641"
+        },
+        {
+          "task_id": "zephyr-tock-lps22hb-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "6206ca417b362edb131279904e28f7fecaccd34077fe500e207c590790fc3e5c"
+        },
+        {
+          "task_id": "zephyr-tock-lsm303dlhc-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "f359626847c1312a3a818e77b2b0fa6c9f56b82b1e5d05222d854e3ecbad942c"
+        },
+        {
+          "task_id": "zephyr-tock-lsm6dso-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "0d2453fd771fe9c507525885d32c538a7c053993418a9a4f5f34e09a12d38c85"
+        },
+        {
+          "task_id": "zephyr-tock-mpu6050-i2c",
+          "native_compile_pass": 1,
+          "behavior_test_pass": 0,
+          "end_to_end_success": 0,
+          "native_build_status": "pass",
+          "behavior_test_status": "fail",
+          "status": "behavior_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "bfb37667c46722389ea480aac28ea3033465c7ca043828519ac8c3c848271c36"
+        },
+        {
+          "task_id": "zephyr-tock-sht3x-i2c",
+          "native_compile_pass": 0,
+          "behavior_test_pass": null,
+          "end_to_end_success": 0,
+          "native_build_status": "compile_failed",
+          "behavior_test_status": "not_run",
+          "status": "compile_failed",
+          "hardware_status": "not_run",
+          "evaluation_sha256": "bac244e1796cc062706621ac4c8e7c641aad8911e34dc7001983c76c135d33e6"
+        }
+      ]
+    }
+  ]
+}

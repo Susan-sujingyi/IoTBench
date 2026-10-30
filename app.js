@@ -2,7 +2,7 @@
 
 const SOURCES = {
   applications: "data/ioteval-paper.json",
-  drivers: "data/driver-four-arms-results.json",
+  drivers: "data/driver-results.json",
 };
 const METRICS = [
   { key: "rate_at_pass", label: "Compile success", heading: "Compile<br>success (%)" },
@@ -11,6 +11,15 @@ const METRICS = [
 ];
 const METHOD_ORDER = ["IoTPilot", "Direct", "Auto-CoT", "MapCoder"];
 const ARM_ORDER = ["codex-s", "codex-d", "codex-sd", "autoembed-s"];
+const DIRECTIONS = [
+  { key: "riot-tock", label: "RIOT → Tock" },
+  { key: "zephyr-nuttx", label: "Zephyr → NuttX" },
+  { key: "zephyr-tock", label: "Zephyr → Tock" },
+];
+const DRIVER_METRICS = [
+  { key: "compile_rate", count: "compile_pass", label: "Compile success" },
+  { key: "software_e2e_rate", count: "software_e2e_pass", label: "Software test pass" },
+];
 const cache = new Map();
 let paperSort = null;
 let driverSort = null;
@@ -114,26 +123,43 @@ function renderPaper(data) {
   table.innerHTML = `<caption class="sr-only">IoTEval paper results. Models group methods vertically; operating systems group three metrics horizontally. All values are percentages.</caption><thead><tr><th class="method-heading" scope="col" rowspan="2">Method</th>${osHeaders}</tr><tr>${metricHeaders}</tr></thead>${bodies}`;
 }
 
+function directionScores(data, row, direction) {
+  const ids = new Set(data.tasks.filter((task) => `${task.source_os}-${task.target_os}` === direction).map((task) => task.id));
+  const scores = row.scores.filter((score) => ids.has(score.task_id));
+  const compile = scores.filter((score) => score.native_compile_pass === 1).length;
+  const software = scores.filter((score) => score.end_to_end_success === 1).length;
+  return { tasks: scores.length, compile_pass: compile, software_e2e_pass: software,
+    compile_rate: scores.length ? 100 * compile / scores.length : null,
+    software_e2e_rate: scores.length ? 100 * software / scores.length : null };
+}
+
 function renderDrivers(data) {
   const table = document.querySelector("#driver-table");
-  document.querySelector("#driver-subtitle").textContent = `${data.results.length} configurations · ${data.subset_cases} common tasks · ${data.subset_sensors} sensors`;
+  document.querySelector("#driver-subtitle").textContent = `${DIRECTIONS.length} migration directions · ${data.results.length} configurations · ${data.subset_cases} common tasks`;
   const models = [...new Set(data.results.map((row) => row.model))];
-  document.querySelector("#driver-context").innerHTML = `<span>Model<strong>${escapeHtml(models.join(" / "))}</strong></span><span>Task subset<strong>${data.subset_cases} / ${data.total_cases}</strong></span><span>Snapshot<strong>${escapeHtml(data.snapshot_window_display.slice(0, 10))}</strong></span>`;
+  document.querySelector("#driver-context").innerHTML = `<span>Model<strong>${escapeHtml(models.join(" / "))}</strong></span><span>Common tasks<strong>${data.subset_cases} / ${data.total_cases} (${data.excluded_cases} excluded)</strong></span><span>Snapshot<strong>${escapeHtml(data.snapshot_window.start.replace("T", " "))}</strong></span>`;
   document.querySelector("#driver-context").hidden = false;
-  const directions = new Map();
-  for (const task of data.tasks) {
-    const key = `${task.source_stack} → ${task.target_stack}`;
-    directions.set(key, (directions.get(key) || 0) + 1);
-  }
-  document.querySelector("#driver-protocol").innerHTML = `<p>The four_arms_strict subset contains ${data.subset_cases} shared tasks from a pool of ${data.total_cases}; ${data.excluded_cases} tasks are excluded. This is an interim subset selected by evaluability, not a final ranking over the full task pool.</p><p>Included directions: ${escapeHtml([...directions].map(([label, count]) => `${label} (${count} tasks)`).join("; "))}. One run per task and configuration. Scoring: ${escapeHtml(data.benchmark_revision)}; execution: ${escapeHtml(data.report_execution_range)}.</p><p>Per-task limits: ${data.budget.seconds_per_task / 60} minutes, ${data.budget.request_limit} requests, CNY ${data.budget.cost_limit_cny}. Snapshot: ${escapeHtml(data.snapshot_window_display)}.</p><div class="source-links"><a href="data/driver-four-arms-REPORT.md" download>Experiment report ↓</a><a href="data/driver-four-arms-strict.csv" download>Task results CSV ↓</a><a href="data/driver-four-arms-results.json" download>Full results JSON ↓</a></div>`;
-  const heading = (metric, label) => {
-    const selected = driverSort?.metric === metric;
+  const excluded = data.task_universe.filter((task) => !task.in_strict_subset);
+  document.querySelector("#driver-protocol").innerHTML = `<p>The four_arms_strict subset contains ${data.subset_cases} shared tasks from a pool of ${data.total_cases}; ${data.excluded_cases} tasks are excluded. Each direction uses its own common-task denominator. Selection by evaluability can bias comparisons; these are not full-pool rates.</p><p>One run per task and configuration. Scoring: ${escapeHtml(data.benchmark_revision)}; execution: ${escapeHtml(data.report_execution_range)}. Per-task limits: ${data.budget.seconds_per_task / 60} minutes, ${data.budget.request_limit} requests, CNY ${data.budget.cost_limit_cny}.</p><p>Snapshot: ${escapeHtml(data.snapshot_window_display)}.</p><details><summary>Excluded tasks (${excluded.length})</summary><ul class="exclusion-list">${excluded.map((task) => `<li><strong>${escapeHtml(task.id)}</strong><br>${escapeHtml(task.exclusion_reason)}</li>`).join("")}</ul></details>`;
+  const heading = (direction, metric) => {
+    const selected = driverSort?.direction === direction.key && driverSort.metric === metric.key;
     const state = selected ? (driverSort.ascending ? "ascending" : "descending") : "none";
-    return `<th scope="col" aria-sort="${state}"><button class="sort-button" type="button" data-driver-metric="${metric}">${label} (%) <span class="sort-arrow" aria-hidden="true">${selected ? (driverSort.ascending ? "↑" : "↓") : "↕"}</span></button></th>`;
+    return `<th class="metric-heading${metric.key === "compile_rate" ? " group-start" : ""}" scope="col" aria-sort="${state}"><button class="sort-button" type="button" data-direction="${direction.key}" data-driver-metric="${metric.key}" aria-label="Sort ${escapeHtml(direction.label)} ${metric.label}">${metric.label} (%) <span class="sort-arrow" aria-hidden="true">${selected ? (driverSort.ascending ? "↑" : "↓") : "↕"}</span></button></th>`;
   };
   let rows = [...data.results].sort((a, b) => ARM_ORDER.indexOf(a.id) - ARM_ORDER.indexOf(b.id));
-  if (driverSort) rows = sortedByValue(rows, (row) => row.metrics[driverSort.metric], driverSort.ascending);
-  table.innerHTML = `<caption class="sr-only">Driver migration compile and software end-to-end rates. All four configurations use ${data.subset_cases} shared tasks.</caption><thead><tr><th scope="col">Method</th><th scope="col">Input condition</th>${heading("compile_rate", "Compile pass")}${heading("software_e2e_rate", "Software test pass")}</tr></thead><tbody>${rows.map((row) => `<tr class="result-row"><th scope="row"><button class="method-link" data-arm="${escapeHtml(row.id)}" type="button" aria-label="View task results for ${escapeHtml(row.method)}">${escapeHtml(row.system)}</button></th><td><span class="condition">${escapeHtml(row.condition)}</span></td><td>${row.metrics.compile_rate.toFixed(2)}<span class="metric-count">${row.counts.compile_pass}/${data.subset_cases}</span></td><td>${row.metrics.software_e2e_rate.toFixed(2)}<span class="metric-count">${row.counts.software_e2e_pass}/${data.subset_cases}</span></td></tr>`).join("")}</tbody>`;
+  if (driverSort) rows = sortedByValue(rows, (row) => directionScores(data, row, driverSort.direction)[driverSort.metric], driverSort.ascending);
+  const groups = DIRECTIONS.map((direction) => {
+    const n = directionScores(data, rows[0], direction.key).tasks;
+    const total = data.task_universe.filter((task) => `${task.source_os}-${task.target_os}` === direction.key).length;
+    return `<th class="os-heading group-start" colspan="2" scope="colgroup">${direction.label}<span class="direction-count">${n} / ${total} tasks</span></th>`;
+  }).join("");
+  table.innerHTML = `<caption class="sr-only">Driver migration results by direction. Each direction groups compilation and software test pass rates on the same tasks for all four configurations.</caption><thead><tr><th class="method-heading" scope="col" rowspan="2">Method</th><th class="condition-heading" scope="col" rowspan="2">Input condition</th>${groups}</tr><tr>${DIRECTIONS.map((direction) => DRIVER_METRICS.map((metric) => heading(direction, metric)).join("")).join("")}</tr></thead><tbody>${rows.map((row) => {
+    const cells = DIRECTIONS.map((direction) => {
+      const scores = directionScores(data, row, direction.key);
+      return DRIVER_METRICS.map((metric, index) => `<td class="${index === 0 ? "group-start" : ""}" data-direction="${direction.key}" data-value="${scores[metric.key] ?? ""}">${scores[metric.key] === null ? "—" : scores[metric.key].toFixed(2)}<span class="metric-count">${scores[metric.count]}/${scores.tasks}</span></td>`).join("");
+    }).join("");
+    return `<tr class="result-row"><th class="method-cell" scope="row"><button class="method-link" data-arm="${escapeHtml(row.id)}" type="button" aria-label="View task results for ${escapeHtml(row.method)}">${escapeHtml(row.system)}</button></th><td><span class="condition">${escapeHtml(row.condition)}</span></td>${cells}</tr>`;
+  }).join("")}</tbody>`;
 }
 
 function resultStatus(value, status) {
@@ -224,9 +250,10 @@ document.addEventListener("click", async (event) => {
   const driverButton = event.target.closest("[data-driver-metric]");
   if (driverButton) {
     const metric = driverButton.dataset.driverMetric;
-    driverSort = { metric, ascending: driverSort?.metric === metric ? !driverSort.ascending : false };
+    const direction = driverButton.dataset.direction;
+    driverSort = { direction, metric, ascending: driverSort?.direction === direction && driverSort.metric === metric ? !driverSort.ascending : false };
     renderDrivers(await cache.get("drivers"));
-    document.querySelector(`[data-driver-metric="${metric}"]`).focus({ preventScroll: true });
+    document.querySelector(`[data-direction="${direction}"][data-driver-metric="${metric}"]`).focus({ preventScroll: true });
   }
   const armButton = event.target.closest("[data-arm]");
   if (armButton) showTaskResults(armButton.dataset.arm);
